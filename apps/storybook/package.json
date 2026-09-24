@@ -1,0 +1,19 @@
+{
+  "name": "@shanu/storybook",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Storybook docs and visual playground for the design system",
+  "scripts": {
+    "dev": "echo \"@shanu/storybook: Storybook not configured yet\"",
+    "build": "echo \"@shanu/storybook: Storybook not configured yet\"",
+    "lint": "echo \"@shanu/storybook: lint not configured yet\"",
+    "typecheck": "echo \"@shanu/storybook: typecheck not configured yet\"",
+    "clean": "echo \"@shanu/storybook: nothing to clean yet\""
+  },
+  "dependencies": {
+    "@shanu/components": "workspace:*",
+    "@shanu/hooks": "workspace:*",
+    "@shanu/theme": "workspace:*",
+    "@shanu/tokens": "workspace:*"
+  }
+}

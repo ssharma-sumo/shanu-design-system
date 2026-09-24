@@ -1,0 +1,29 @@
+{
+  "name": "@shanu/theme",
+  "version": "0.0.0",
+  "private": true,
+  "description": "MUI theme built from @shanu/tokens",
+  "type": "module",
+  "main": "./src/index.ts",
+  "types": "./src/index.ts",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "files": [
+    "dist",
+    "src"
+  ],
+  "scripts": {
+    "build": "echo \"@shanu/theme: build not configured yet\"",
+    "dev": "echo \"@shanu/theme: dev not configured yet\"",
+    "lint": "echo \"@shanu/theme: lint not configured yet\"",
+    "typecheck": "tsc --noEmit",
+    "clean": "echo \"@shanu/theme: nothing to clean yet\""
+  },
+  "dependencies": {
+    "@shanu/tokens": "workspace:*"
+  },
+  "devDependencies": {
+    "typescript": "^5.8.2"
+  }
+}
