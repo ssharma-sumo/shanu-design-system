@@ -19,8 +19,8 @@ shanu-design-system/
 
 ## Prerequisites
 
-- Node.js >= 20
-- pnpm 9 (enabled via Corepack: `corepack enable`)
+- Node.js >= 26
+- pnpm 11 (enabled via Corepack: `corepack enable`)
 
 ## Setup
 
