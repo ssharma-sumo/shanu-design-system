@@ -4,23 +4,40 @@
   "private": true,
   "description": "Design tokens — JS/TS, SCSS, and CSS outputs",
   "type": "module",
-  "main": "./src/index.ts",
-  "types": "./src/index.ts",
+  "main": "./build/light/tokens.ts",
+  "types": "./build/light/tokens.d.ts",
   "exports": {
-    ".": "./src/index.ts"
+    ".": {
+      "types": "./build/light/tokens.d.ts",
+      "default": "./build/light/tokens.ts"
+    },
+    "./light": {
+      "types": "./build/light/tokens.d.ts",
+      "default": "./build/light/tokens.ts"
+    },
+    "./dark": {
+      "types": "./build/dark/tokens.d.ts",
+      "default": "./build/dark/tokens.ts"
+    },
+    "./css/light": "./build/light/variables.css",
+    "./css/dark": "./build/dark/variables.css",
+    "./scss/light": "./build/light/_variables.scss",
+    "./scss/dark": "./build/dark/_variables.scss"
   },
   "files": [
-    "dist",
+    "build",
+    "tokens",
     "src"
   ],
   "scripts": {
-    "build": "echo \"@shanu/tokens: build not configured yet\"",
-    "dev": "echo \"@shanu/tokens: dev not configured yet\"",
+    "build": "node style-dictionary.config.mjs",
+    "dev": "node style-dictionary.config.mjs",
     "lint": "echo \"@shanu/tokens: lint not configured yet\"",
-    "typecheck": "tsc --noEmit",
-    "clean": "echo \"@shanu/tokens: nothing to clean yet\""
+    "typecheck": "pnpm build && tsc --noEmit",
+    "clean": "node -e \"import('node:fs').then(fs => fs.promises.rm('build', { recursive: true, force: true }))\""
   },
   "devDependencies": {
+    "style-dictionary": "^4.4.0",
     "typescript": "^5.8.2"
   }
 }
