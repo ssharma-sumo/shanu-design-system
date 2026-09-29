@@ -2,5 +2,8 @@ packages:
   - 'packages/*'
   - 'apps/*'
 
+allowBuilds:
+  '@bundled-es-modules/glob': true
+  style-dictionary: true
 autoInstallPeers: true
 strictPeerDependencies: false

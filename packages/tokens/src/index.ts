@@ -1,5 +1,7 @@
 /**
  * Design tokens package.
- * Token sources and Style Dictionary pipeline land in a later phase.
+ * Generated Style Dictionary outputs live under build/{light,dark}/.
+ * Prefer package exports (`@shanu/tokens`, `@shanu/tokens/dark`, etc.).
  */
-export {};
+export * from "../build/light/tokens.js";
+export * as dark from "../build/dark/tokens.js";

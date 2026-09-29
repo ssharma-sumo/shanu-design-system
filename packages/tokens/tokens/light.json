@@ -1,0 +1,55 @@
+{
+  "color": {
+    "background": {
+      "canvas": { "value": "{color.primitive.neutral.50}", "comment": "App shell background" },
+      "surface": { "value": "{color.primitive.neutral.0}", "comment": "Default card / paper" },
+      "surfaceRaised": { "value": "{color.primitive.neutral.0}", "comment": "Elevated card, popovers" },
+      "overlay": { "value": "rgba(23, 23, 27, 0.48)", "comment": "Scrim behind modals/drawers" },
+      "inverse": { "value": "{color.primitive.neutral.900}", "comment": "Background flipped relative to mode" }
+    },
+    "text": {
+      "primary": { "value": "{color.primitive.neutral.900}" },
+      "secondary": { "value": "{color.primitive.neutral.600}" },
+      "disabled": { "value": "{color.primitive.neutral.400}" },
+      "inverse": { "value": "{color.primitive.neutral.0}" },
+      "link": { "value": "{color.primitive.violet.600}" },
+      "linkHover": { "value": "{color.primitive.violet.700}" }
+    },
+    "border": {
+      "subtle": { "value": "{color.primitive.neutral.100}" },
+      "default": { "value": "{color.primitive.neutral.200}" },
+      "strong": { "value": "{color.primitive.neutral.300}" },
+      "focus": { "value": "{color.primitive.violet.500}" }
+    },
+    "action": {
+      "hover": { "value": "rgba(23, 23, 27, 0.04)" },
+      "selected": { "value": "rgba(109, 84, 240, 0.08)" },
+      "disabled": { "value": "{color.primitive.neutral.300}" },
+      "disabledBackground": { "value": "{color.primitive.neutral.100}" },
+      "focusVisible": { "value": "rgba(109, 84, 240, 0.32)" }
+    },
+    "brand": {
+      "primary": { "value": "{color.primitive.violet.500}" },
+      "primaryHover": { "value": "{color.primitive.violet.600}" },
+      "primaryActive": { "value": "{color.primitive.violet.700}" },
+      "onPrimary": { "value": "{color.primitive.neutral.0}" },
+      "secondary": { "value": "{color.primitive.teal.600}" },
+      "secondaryHover": { "value": "{color.primitive.teal.700}" },
+      "onSecondary": { "value": "{color.primitive.neutral.0}" }
+    },
+    "feedback": {
+      "successBg": { "value": "{color.primitive.green.200}" },
+      "successFg": { "value": "{color.primitive.green.700}" },
+      "successBorder": { "value": "{color.primitive.green.400}" },
+      "warningBg": { "value": "{color.primitive.amber.200}" },
+      "warningFg": { "value": "{color.primitive.amber.700}" },
+      "warningBorder": { "value": "{color.primitive.amber.400}" },
+      "errorBg": { "value": "{color.primitive.red.200}" },
+      "errorFg": { "value": "{color.primitive.red.700}" },
+      "errorBorder": { "value": "{color.primitive.red.400}" },
+      "infoBg": { "value": "{color.primitive.sky.200}" },
+      "infoFg": { "value": "{color.primitive.sky.700}" },
+      "infoBorder": { "value": "{color.primitive.sky.400}" }
+    }
+  }
+}
