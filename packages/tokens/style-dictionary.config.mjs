@@ -23,7 +23,8 @@ for (const theme of themes) {
           {
             destination: "variables.css",
             format: "css/variables",
-            filter: (token) => token.path[0] === "color" && token.path[1] !== "primitive",
+            filter: (token) =>
+              !(token.path[0] === "color" && token.path[1] === "primitive"),
             options: {
               selector: `[data-mui-color-scheme="${theme}"]`,
               outputReferences: false,
@@ -38,7 +39,8 @@ for (const theme of themes) {
           {
             destination: "_variables.scss",
             format: "scss/variables",
-            filter: (token) => token.path[0] === "color" && token.path[1] !== "primitive",
+            filter: (token) =>
+              !(token.path[0] === "color" && token.path[1] === "primitive"),
           },
         ],
       },
@@ -49,12 +51,14 @@ for (const theme of themes) {
           {
             destination: "tokens.ts",
             format: "javascript/es6",
-            filter: (token) => token.path[0] === "color" && token.path[1] !== "primitive",
+            filter: (token) =>
+              !(token.path[0] === "color" && token.path[1] === "primitive"),
           },
           {
             destination: "tokens.d.ts",
             format: "typescript/es6-declarations",
-            filter: (token) => token.path[0] === "color" && token.path[1] !== "primitive",
+            filter: (token) =>
+              !(token.path[0] === "color" && token.path[1] === "primitive"),
           },
         ],
       },
