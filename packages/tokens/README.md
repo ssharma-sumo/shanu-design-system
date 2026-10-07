@@ -68,10 +68,14 @@ The MUI theme toggles schemes via a `data-mui-color-scheme="light" | "dark"` att
 
 If your pipeline doesn't need that (e.g. you load only one theme's CSS at a time, server-rendered per request), change `options.selector` in `style-dictionary.config.mjs` to `:root` for both themes.
 
+## Non-color tokens (spacing, typography, radius, breakpoints)
+
+Mode-agnostic scales live in `core.json` only (`spacing.*`, `radius.*`, `font.*`, `breakpoint.*`). They are included in every light/dark build output alongside semantic colors.
+
 ## Adding a token
 
-1. Add the primitive to `core.json` if it's a new hue/stop.
-2. Add the *same key* to both `light.json` and `dark.json` under the right semantic category, referencing the primitive (or a literal for alpha/overlay values).
+1. Add the primitive to `core.json` if it's a new hue/stop (or add a new global scale entry for spacing/typography).
+2. For **colors**, add the *same key* to both `light.json` and `dark.json` under the right semantic category, referencing the primitive (or a literal for alpha/overlay values).
 3. Rebuild — it flows through to CSS, SCSS, and TS automatically since all three platforms share the same filtered token set.
 
 ## Notes

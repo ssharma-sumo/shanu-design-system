@@ -60,5 +60,57 @@
         "700": { "value": "#155F98" }
       }
     }
+  },
+  "spacing": {
+    "unit": { "value": "8", "comment": "MUI spacing factor base (px)" },
+    "0": { "value": "0" },
+    "1": { "value": "4" },
+    "2": { "value": "8" },
+    "3": { "value": "12" },
+    "4": { "value": "16" },
+    "5": { "value": "20" },
+    "6": { "value": "24" },
+    "8": { "value": "32" },
+    "10": { "value": "40" },
+    "12": { "value": "48" }
+  },
+  "radius": {
+    "sm": { "value": "4" },
+    "md": { "value": "8" },
+    "lg": { "value": "12" },
+    "full": { "value": "9999" }
+  },
+  "font": {
+    "family": {
+      "sans": {
+        "value": "\"Inter\", \"Segoe UI\", system-ui, -apple-system, sans-serif"
+      }
+    },
+    "size": {
+      "xs": { "value": "12" },
+      "sm": { "value": "14" },
+      "md": { "value": "16" },
+      "lg": { "value": "18" },
+      "xl": { "value": "20" },
+      "2xl": { "value": "24" },
+      "3xl": { "value": "30" }
+    },
+    "weight": {
+      "regular": { "value": "400" },
+      "medium": { "value": "500" },
+      "semibold": { "value": "600" },
+      "bold": { "value": "700" }
+    },
+    "lineHeight": {
+      "tight": { "value": "1.25" },
+      "normal": { "value": "1.5" },
+      "relaxed": { "value": "1.625" }
+    }
+  },
+  "breakpoint": {
+    "sm": { "value": "600" },
+    "md": { "value": "900" },
+    "lg": { "value": "1200" },
+    "xl": { "value": "1536" }
   }
 }

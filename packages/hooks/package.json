@@ -14,7 +14,7 @@
     "src"
   ],
   "scripts": {
-    "build": "echo \"@shanu/hooks: build not configured yet\"",
+    "build": "tsc --noEmit",
     "dev": "echo \"@shanu/hooks: dev not configured yet\"",
     "lint": "echo \"@shanu/hooks: lint not configured yet\"",
     "typecheck": "tsc --noEmit",
