@@ -14,11 +14,10 @@
     "src"
   ],
   "scripts": {
-    "prebuild": "pnpm --filter @shanu/tokens build",
     "build": "tsc --noEmit",
     "dev": "pnpm run build",
     "lint": "echo \"@shanu/theme: lint not configured yet\"",
-    "typecheck": "pnpm run prebuild && tsc --noEmit",
+    "typecheck": "tsc --noEmit",
     "clean": "echo \"@shanu/theme: nothing to clean yet\""
   },
   "dependencies": {

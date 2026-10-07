@@ -9,7 +9,7 @@
     "pnpm": ">=12"
   },
   "scripts": {
-    "build": "pnpm --filter @shanu/tokens run build && pnpm --filter @shanu/theme run build && pnpm --filter @shanu/components run build && pnpm --filter @shanu/hooks run build",
+    "build": "pnpm -r --filter=./packages/* run build",
     "dev": "pnpm -r --parallel --filter=./packages/* run dev",
     "lint": "pnpm -r --filter=./packages/* run lint",
     "typecheck": "pnpm -r --filter=./packages/* run typecheck",
