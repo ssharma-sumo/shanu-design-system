@@ -47,6 +47,12 @@ export function createPackageConfig(options: {
     plugins: [
       dts({
         include: ["src"],
+        exclude: [
+          "**/*.test.ts",
+          "**/*.test.tsx",
+          "**/test-setup.ts",
+          "**/test-utils.tsx",
+        ],
         outDir: "dist",
         rollupTypes: false,
       }),
