@@ -4,21 +4,24 @@
   "private": true,
   "description": "Reusable React hooks for the design system",
   "type": "module",
-  "main": "./src/index.ts",
-  "types": "./src/index.ts",
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
   "exports": {
-    ".": "./src/index.ts"
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
   },
   "files": [
-    "dist",
-    "src"
+    "dist"
   ],
   "scripts": {
-    "build": "tsc --noEmit",
-    "dev": "echo \"@shanu/hooks: dev not configured yet\"",
+    "build": "vite build",
+    "dev": "vite build --watch",
     "lint": "echo \"@shanu/hooks: lint not configured yet\"",
     "typecheck": "tsc --noEmit",
-    "clean": "echo \"@shanu/hooks: nothing to clean yet\""
+    "clean": "node -e \"import('node:fs').then(fs => fs.promises.rm('dist', { recursive: true, force: true }))\""
   },
   "peerDependencies": {
     "react": ">=18"
@@ -26,6 +29,8 @@
   "devDependencies": {
     "@types/react": "^19.0.10",
     "react": "^19.0.0",
-    "typescript": "^5.8.2"
+    "typescript": "^5.8.2",
+    "vite": "^8.3.3",
+    "vite-plugin-dts": "^5.1.2"
   }
 }
