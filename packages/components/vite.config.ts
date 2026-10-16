@@ -1,4 +1,7 @@
-import { createPackageConfig, packageDirFromUrl } from "../../vite.config.base.mts";
+import {
+  createPackageConfig,
+  packageDirFromUrl,
+} from "../../vite.config.base.mts";
 
 export default createPackageConfig({
   packageDir: packageDirFromUrl(import.meta.url),

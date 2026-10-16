@@ -6,7 +6,9 @@ function px(value: string): string {
   return value.endsWith("px") ? value : `${value}px`;
 }
 
-export function mapTokensToTypography(tokens: ShanuTokenSet): TypographyVariantsOptions {
+export function mapTokensToTypography(
+  tokens: ShanuTokenSet,
+): TypographyVariantsOptions {
   const fontFamily = tokens.FontFamilySans;
 
   return {

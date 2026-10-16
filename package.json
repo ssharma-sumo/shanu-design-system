@@ -11,12 +11,34 @@
   "scripts": {
     "build": "pnpm -r --filter=./packages/* run build",
     "dev": "pnpm -r --parallel --filter=./packages/* run dev",
-    "lint": "pnpm -r --filter=./packages/* run lint",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
     "typecheck": "pnpm -r --filter=./packages/* run typecheck",
-    "clean": "pnpm -r --filter=./packages/* run clean"
+    "clean": "pnpm -r --filter=./packages/* run clean",
+    "prepare": "husky"
+  },
+  "lint-staged": {
+    "*.{js,mjs,cjs,mts,cts,ts,tsx}": [
+      "eslint --fix",
+      "prettier --write"
+    ],
+    "*.{json,md,yml,yaml,css,scss}": [
+      "prettier --write"
+    ]
   },
   "devDependencies": {
+    "@eslint/js": "^10.0.1",
     "@types/node": "^26.6.4",
+    "eslint": "^10.12.0",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-react-hooks": "^7.1.1",
+    "globals": "^17.13.0",
+    "husky": "^9.1.7",
+    "lint-staged": "^15.5.2",
+    "prettier": "^3.9.10",
+    "typescript-eslint": "^8.71.2",
     "vite": "^8.3.3",
     "vite-plugin-dts": "^5.1.2"
   }

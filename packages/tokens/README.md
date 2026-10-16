@@ -49,14 +49,14 @@ build/dark/...                 → same three formats, dark values
 
 ## Package exports
 
-| Import | Output |
-|---|---|
-| `@shanu/tokens` / `@shanu/tokens/light` | Light TS constants |
-| `@shanu/tokens/dark` | Dark TS constants |
-| `@shanu/tokens/css/light` | Light CSS variables |
-| `@shanu/tokens/css/dark` | Dark CSS variables |
-| `@shanu/tokens/scss/light` | Light SCSS variables |
-| `@shanu/tokens/scss/dark` | Dark SCSS variables |
+| Import                                  | Output               |
+| --------------------------------------- | -------------------- |
+| `@shanu/tokens` / `@shanu/tokens/light` | Light TS constants   |
+| `@shanu/tokens/dark`                    | Dark TS constants    |
+| `@shanu/tokens/css/light`               | Light CSS variables  |
+| `@shanu/tokens/css/dark`                | Dark CSS variables   |
+| `@shanu/tokens/scss/light`              | Light SCSS variables |
+| `@shanu/tokens/scss/dark`               | Dark SCSS variables  |
 
 ## Why CSS is scoped to an attribute selector, not `:root`
 
@@ -75,10 +75,10 @@ Mode-agnostic scales live in `core.json` only (`spacing.*`, `radius.*`, `font.*`
 ## Adding a token
 
 1. Add the primitive to `core.json` if it's a new hue/stop (or add a new global scale entry for spacing/typography).
-2. For **colors**, add the *same key* to both `light.json` and `dark.json` under the right semantic category, referencing the primitive (or a literal for alpha/overlay values).
+2. For **colors**, add the _same key_ to both `light.json` and `dark.json` under the right semantic category, referencing the primitive (or a literal for alpha/overlay values).
 3. Rebuild — it flows through to CSS, SCSS, and TS automatically since all three platforms share the same filtered token set.
 
 ## Notes
 
 - The `filter` in each platform excludes `color.primitive.*` from every output — primitives are internal plumbing for resolving references, not something components should ever consume directly.
-- `outputReferences: false` on the CSS platform means the *resolved* hex/rgba lands in the CSS file, not a chain of `var(--color-primitive-violet-500)`. Flip it to `true` if you'd rather keep the primitive layer visible in the CSS output too.
+- `outputReferences: false` on the CSS platform means the _resolved_ hex/rgba lands in the CSS file, not a chain of `var(--color-primitive-violet-500)`. Flip it to `true` if you'd rather keep the primitive layer visible in the CSS output too.

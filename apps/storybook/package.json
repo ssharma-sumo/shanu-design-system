@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "echo \"@shanu/storybook: Storybook not configured yet\"",
     "build": "echo \"@shanu/storybook: Storybook not configured yet\"",
-    "lint": "echo \"@shanu/storybook: lint not configured yet\"",
+    "lint": "eslint .",
     "typecheck": "echo \"@shanu/storybook: typecheck not configured yet\"",
     "clean": "echo \"@shanu/storybook: nothing to clean yet\""
   },
