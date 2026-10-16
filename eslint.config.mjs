@@ -28,5 +28,17 @@ export default tseslint.config(
     ...reactHooks.configs.flat.recommended,
     files: ["**/*.{js,jsx,ts,tsx}"],
   },
+  {
+    files: [
+      "**/*.{test,spec}.{ts,tsx}",
+      "**/test-setup.ts",
+      "**/test-utils.tsx",
+    ],
+    languageOptions: {
+      globals: {
+        ...globals.vitest,
+      },
+    },
+  },
   eslintConfigPrettier,
 );

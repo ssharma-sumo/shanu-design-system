@@ -4,6 +4,8 @@ packages:
 
 allowBuilds:
   "@bundled-es-modules/glob": true
+  "@parcel/watcher": true
   style-dictionary: true
+  unrs-resolver: true
 autoInstallPeers: true
 strictPeerDependencies: false
