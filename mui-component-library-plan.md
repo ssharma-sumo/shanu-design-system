@@ -7,7 +7,7 @@
   1. **Components** (React components wrapping/extending MUI)
   2. **Hooks** (reusable logic: theme, media query, form helpers, etc.)
   3. **Design Tokens** — usable from **JS/TS** (for MUI theme + JS consumers) **and SCSS** (for teams/pages not using MUI directly, or plain CSS work)
-- Any developer — inside or outside the MUI ecosystem — should be able to build a new component using the *same* tokens and get visual consistency automatically.
+- Any developer — inside or outside the MUI ecosystem — should be able to build a new component using the _same_ tokens and get visual consistency automatically.
 
 ---
 
@@ -37,11 +37,11 @@ design-system/
 
 ### 3.1 Token layering (industry-standard 3-tier model)
 
-| Tier | Purpose | Example |
-|---|---|---|
-| **Global/Primitive** | Raw values, no meaning attached | `color.blue.500 = #2563eb`, `spacing.4 = 16px` |
-| **Semantic/Alias** | Meaning-based, references primitives | `color.background.primary = {color.blue.500}`, `color.text.danger = {color.red.600}` |
-| **Component** | Component-specific overrides | `button.primary.bg = {color.background.primary}` |
+| Tier                 | Purpose                              | Example                                                                              |
+| -------------------- | ------------------------------------ | ------------------------------------------------------------------------------------ |
+| **Global/Primitive** | Raw values, no meaning attached      | `color.blue.500 = #2563eb`, `spacing.4 = 16px`                                       |
+| **Semantic/Alias**   | Meaning-based, references primitives | `color.background.primary = {color.blue.500}`, `color.text.danger = {color.red.600}` |
+| **Component**        | Component-specific overrides         | `button.primary.bg = {color.background.primary}`                                     |
 
 This is what makes tokens "semantic" — consumers use `color-text-danger`, not `red-600`, so rebranding = changing one primitive layer.
 
@@ -69,31 +69,31 @@ Use **[Style Dictionary](https://amzn.github.io/style-dictionary/)** to transfor
 ```js
 // style-dictionary.config.js
 module.exports = {
-  source: ['tokens/**/*.json'],
+  source: ["tokens/**/*.json"],
   platforms: {
     js: {
-      transformGroup: 'js',
-      buildPath: 'dist/js/',
+      transformGroup: "js",
+      buildPath: "dist/js/",
       files: [
-        { destination: 'tokens.js', format: 'javascript/es6' },
-        { destination: 'tokens.d.ts', format: 'typescript/es6-declarations' },
-        { destination: 'tokens.json', format: 'json/flat' } // for MUI theme consumption
-      ]
+        { destination: "tokens.js", format: "javascript/es6" },
+        { destination: "tokens.d.ts", format: "typescript/es6-declarations" },
+        { destination: "tokens.json", format: "json/flat" }, // for MUI theme consumption
+      ],
     },
     scss: {
-      transformGroup: 'scss',
-      buildPath: 'dist/scss/',
+      transformGroup: "scss",
+      buildPath: "dist/scss/",
       files: [
-        { destination: '_tokens.scss', format: 'scss/variables' },
-        { destination: '_tokens-map.scss', format: 'scss/map-flat' } // enables SCSS functions/loops
-      ]
+        { destination: "_tokens.scss", format: "scss/variables" },
+        { destination: "_tokens-map.scss", format: "scss/map-flat" }, // enables SCSS functions/loops
+      ],
     },
     css: {
-      transformGroup: 'css',
-      buildPath: 'dist/css/',
-      files: [{ destination: 'tokens.css', format: 'css/variables' }] // CSS custom properties, framework-agnostic
-    }
-  }
+      transformGroup: "css",
+      buildPath: "dist/css/",
+      files: [{ destination: "tokens.css", format: "css/variables" }], // CSS custom properties, framework-agnostic
+    },
+  },
 };
 ```
 
@@ -103,12 +103,17 @@ Output result — same values, three consumable formats:
 // JS
 export const colorTextDanger = "#dc2626";
 ```
+
 ```scss
 // SCSS
 $color-text-danger: #dc2626;
 // or as a map for @use with namespacing
-$tokens: ("color-text-danger": #dc2626, ...);
+$tokens: (
+  "color-text-danger": #dc2626,
+  ...,
+);
 ```
+
 ```css
 :root {
   --color-text-danger: #dc2626;
@@ -116,13 +121,18 @@ $tokens: ("color-text-danger": #dc2626, ...);
 ```
 
 This lets a non-MUI team building a custom component do:
+
 ```scss
-@use '@yourorg/tokens/scss/tokens' as tokens;
-.custom-alert { color: tokens.$color-text-danger; }
+@use "@yourorg/tokens/scss/tokens" as tokens;
+.custom-alert {
+  color: tokens.$color-text-danger;
+}
 ```
+
 ...while a React/MUI dev does:
+
 ```ts
-import { colorTextDanger } from '@yourorg/tokens/js';
+import { colorTextDanger } from "@yourorg/tokens/js";
 ```
 
 ### 3.4 Publish tokens as their own package
@@ -136,24 +146,25 @@ import { colorTextDanger } from '@yourorg/tokens/js';
 This package maps semantic tokens → MUI's `createTheme()` shape, so MUI's internal styling engine and your custom components share one source of truth.
 
 ```ts
-import { createTheme } from '@mui/material/styles';
-import * as tokens from '@yourorg/tokens/js';
+import { createTheme } from "@mui/material/styles";
+import * as tokens from "@yourorg/tokens/js";
 
 export const theme = createTheme({
   palette: {
     primary: { main: tokens.colorBackgroundPrimary },
-    error: { main: tokens.colorTextDanger }
+    error: { main: tokens.colorTextDanger },
   },
   spacing: (factor) => `${tokens.spacingUnit * factor}px`,
   typography: {
     fontFamily: tokens.fontFamilyBase,
-    h1: { fontSize: tokens.fontSizeHeading1 }
+    h1: { fontSize: tokens.fontSizeHeading1 },
   },
   shape: { borderRadius: tokens.radiusMd },
   // custom design tokens not native to MUI's theme shape:
-  customTokens: tokens
+  customTokens: tokens,
 });
 ```
+
 Use TypeScript **module augmentation** to extend MUI's `Theme`/`ThemeOptions` interfaces if you add custom keys (e.g., `customTokens`, custom variants, custom component slots).
 
 ---
@@ -161,6 +172,7 @@ Use TypeScript **module augmentation** to extend MUI's `Theme`/`ThemeOptions` in
 ## 5. Components Package (`@yourorg/components`)
 
 ### Structure per component
+
 ```
 components/src/Button/
 ├── Button.tsx
@@ -172,12 +184,14 @@ components/src/Button/
 ```
 
 ### Rules to enforce (via lint rules / PR checklist)
+
 - No hardcoded hex colors, px spacing, or font sizes in component code — always pull from `theme.customTokens` or MUI's `sx`/`styled` referencing theme.
 - Wrap/extend MUI primitives rather than reinventing (e.g., `MyButton` composes `@mui/material/Button` with your variants), unless there's a hard functional reason not to — this keeps accessibility and behavior (focus states, ripple, keyboard nav) for free.
 - Every component accepts `sx` and forwards `ref` (standard MUI conventions) for composability.
 - Export both the component and its prop types.
 
 ### Styling approach
+
 Prefer MUI's `styled()`/theme-driven `sx` over raw CSS-in-JS constants, so the same tokens driving your SCSS also drive your components — no drift between the two outputs.
 
 ---
@@ -187,6 +201,7 @@ Prefer MUI's `styled()`/theme-driven `sx` over raw CSS-in-JS constants, so the s
 Ship as an independent package so it can be used without pulling in components (or even MUI, where possible):
 
 Examples to include:
+
 - `useThemeTokens()` — typed accessor into `theme.customTokens`
 - `useBreakpoint()` — wraps MUI's `useMediaQuery` with your defined breakpoints
 - `useDisclosure()` — open/close state for modals/menus/drawers
@@ -216,8 +231,8 @@ Use modern `exports` maps so consumers can import exactly what they need (tree-s
   "exports": {
     ".": "./dist/js/tokens.js",
     "./scss": "./dist/scss/_tokens.scss",
-    "./css": "./dist/css/tokens.css"
-  }
+    "./css": "./dist/css/tokens.css",
+  },
 }
 ```
 
@@ -226,7 +241,9 @@ Use modern `exports` maps so consumers can import exactly what they need (tree-s
 {
   "name": "@yourorg/components",
   "peerDependencies": { "react": ">=18", "@mui/material": ">=5" },
-  "exports": { ".": { "types": "./dist/index.d.ts", "import": "./dist/index.mjs" } }
+  "exports": {
+    ".": { "types": "./dist/index.d.ts", "import": "./dist/index.mjs" },
+  },
 }
 ```
 
@@ -236,7 +253,7 @@ Keep `react`, `react-dom`, and `@mui/material` as **peerDependencies** (not dire
 
 ## 8. Build Tooling
 
-- **Bundler:** vite 
+- **Bundler:** vite
 - **Tokens:** Style Dictionary CLI, run in its own `build` step before `components` builds (Turborepo dependency graph: `tokens → theme → components/hooks`).
 - **Type-checking:** TypeScript project references across packages.
 - **Linting:** ESLint + a custom rule (or `stylelint` for SCSS) that flags hardcoded colors/spacing to enforce token usage.
@@ -256,12 +273,12 @@ Keep `react`, `react-dom`, and `@mui/material` as **peerDependencies** (not dire
 
 ## 10. Testing Strategy
 
-| Layer | Tooling |
-|---|---|
-| Unit / component behavior | Jest + React Testing Library |
-| Accessibility | jest-axe, storybook a11y addon |
-| Visual regression | Chromatic / Playwright screenshots |
-| Token contract tests | Snapshot test that `dist/js/tokens.js`, `_tokens.scss`, `tokens.css` all contain matching values (prevents the 3 outputs drifting) |
+| Layer                     | Tooling                                                                                                                            |
+| ------------------------- | ---------------------------------------------------------------------------------------------------------------------------------- |
+| Unit / component behavior | Jest + React Testing Library                                                                                                       |
+| Accessibility             | jest-axe, storybook a11y addon                                                                                                     |
+| Visual regression         | Chromatic / Playwright screenshots                                                                                                 |
+| Token contract tests      | Snapshot test that `dist/js/tokens.js`, `_tokens.scss`, `tokens.css` all contain matching values (prevents the 3 outputs drifting) |
 
 ---
 
@@ -287,14 +304,14 @@ Keep `react`, `react-dom`, and `@mui/material` as **peerDependencies** (not dire
 
 ## 13. Suggested Rollout Timeline
 
-| Phase | Duration | Deliverable |
-|---|---|---|
-| 1. Token foundation | 1–2 wks | `@yourorg/tokens` published with JS/SCSS/CSS outputs, primitive + semantic layers defined |
-| 2. Theme layer | 1 wk | `@yourorg/theme` mapping tokens → MUI theme, TS augmentation done |
-| 3. Core components | 3–4 wks | Button, Input, Select, Checkbox, Radio, Typography, Card, Modal, Alert — highest-reuse components first |
-| 4. Hooks package | parallel with Phase 3 | `useThemeTokens`, `useBreakpoint`, `useDisclosure`, form hooks |
-| 5. Docs + visual QA | parallel, ongoing | Storybook site live, Chromatic wired into CI |
-| 6. Adoption | ongoing | Migrate 1 pilot app, gather feedback, iterate before org-wide rollout |
+| Phase               | Duration              | Deliverable                                                                                             |
+| ------------------- | --------------------- | ------------------------------------------------------------------------------------------------------- |
+| 1. Token foundation | 1–2 wks               | `@yourorg/tokens` published with JS/SCSS/CSS outputs, primitive + semantic layers defined               |
+| 2. Theme layer      | 1 wk                  | `@yourorg/theme` mapping tokens → MUI theme, TS augmentation done                                       |
+| 3. Core components  | 3–4 wks               | Button, Input, Select, Checkbox, Radio, Typography, Card, Modal, Alert — highest-reuse components first |
+| 4. Hooks package    | parallel with Phase 3 | `useThemeTokens`, `useBreakpoint`, `useDisclosure`, form hooks                                          |
+| 5. Docs + visual QA | parallel, ongoing     | Storybook site live, Chromatic wired into CI                                                            |
+| 6. Adoption         | ongoing               | Migrate 1 pilot app, gather feedback, iterate before org-wide rollout                                   |
 
 ---
 

@@ -32,7 +32,7 @@
   "scripts": {
     "build": "node style-dictionary.config.mjs",
     "dev": "node style-dictionary.config.mjs",
-    "lint": "echo \"@shanu/tokens: lint not configured yet\"",
+    "lint": "eslint .",
     "typecheck": "pnpm build && tsc --noEmit",
     "clean": "node -e \"import('node:fs').then(fs => fs.promises.rm('build', { recursive: true, force: true }))\""
   },

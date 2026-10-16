@@ -30,12 +30,12 @@ pnpm install
 
 ## Scripts
 
-| Command | Description |
-|---|---|
-| `pnpm build` | Build all packages |
-| `pnpm typecheck` | Type-check all packages |
-| `pnpm lint` | Lint all packages |
-| `pnpm clean` | Clean package build outputs |
+| Command          | Description                 |
+| ---------------- | --------------------------- |
+| `pnpm build`     | Build all packages          |
+| `pnpm typecheck` | Type-check all packages     |
+| `pnpm lint`      | Lint all packages           |
+| `pnpm clean`     | Clean package build outputs |
 
 ## Phases
 

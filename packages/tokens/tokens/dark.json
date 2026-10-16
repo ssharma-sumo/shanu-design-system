@@ -1,11 +1,26 @@
 {
   "color": {
     "background": {
-      "canvas": { "value": "{color.primitive.neutral.950}", "comment": "App shell background" },
-      "surface": { "value": "{color.primitive.neutral.900}", "comment": "Default card / paper" },
-      "surfaceRaised": { "value": "{color.primitive.neutral.800}", "comment": "Elevated card, popovers" },
-      "overlay": { "value": "rgba(13, 13, 15, 0.64)", "comment": "Scrim behind modals/drawers" },
-      "inverse": { "value": "{color.primitive.neutral.50}", "comment": "Background flipped relative to mode" }
+      "canvas": {
+        "value": "{color.primitive.neutral.950}",
+        "comment": "App shell background"
+      },
+      "surface": {
+        "value": "{color.primitive.neutral.900}",
+        "comment": "Default card / paper"
+      },
+      "surfaceRaised": {
+        "value": "{color.primitive.neutral.800}",
+        "comment": "Elevated card, popovers"
+      },
+      "overlay": {
+        "value": "rgba(13, 13, 15, 0.64)",
+        "comment": "Scrim behind modals/drawers"
+      },
+      "inverse": {
+        "value": "{color.primitive.neutral.50}",
+        "comment": "Background flipped relative to mode"
+      }
     },
     "text": {
       "primary": { "value": "{color.primitive.neutral.50}" },

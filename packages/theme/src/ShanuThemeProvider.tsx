@@ -2,7 +2,10 @@ import CssBaseline from "@mui/material/CssBaseline";
 import { ThemeProvider, type Theme } from "@mui/material/styles";
 import type { ReactNode } from "react";
 
-import { createShanuTheme, type ShanuThemeOptions } from "./createShanuTheme.js";
+import {
+  createShanuTheme,
+  type ShanuThemeOptions,
+} from "./createShanuTheme.js";
 
 export type ShanuThemeProviderProps = {
   children: ReactNode;

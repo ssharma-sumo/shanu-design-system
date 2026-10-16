@@ -1,1 +1,4 @@
-export { ColorModeToggle, type ColorModeToggleProps } from "./ColorModeToggle.js";
+export {
+  ColorModeToggle,
+  type ColorModeToggleProps,
+} from "./ColorModeToggle.js";

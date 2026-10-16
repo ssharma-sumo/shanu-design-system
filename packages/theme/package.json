@@ -19,7 +19,7 @@
   "scripts": {
     "build": "vite build",
     "dev": "vite build --watch",
-    "lint": "echo \"@shanu/theme: lint not configured yet\"",
+    "lint": "eslint .",
     "typecheck": "tsc --noEmit",
     "clean": "node -e \"import('node:fs').then(fs => fs.promises.rm('dist', { recursive: true, force: true }))\""
   },
