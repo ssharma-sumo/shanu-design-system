@@ -16,7 +16,7 @@
     "format": "prettier --write .",
     "format:check": "prettier --check .",
     "typecheck": "pnpm -r --filter=./packages/* run typecheck",
-    "test": "pnpm -r --if-present run test",
+    "test": "pnpm -r --parallel --if-present run test",
     "clean": "pnpm -r --filter=./packages/* run clean",
     "prepare": "husky"
   },
