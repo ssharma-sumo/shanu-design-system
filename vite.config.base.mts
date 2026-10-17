@@ -50,6 +50,8 @@ export function createPackageConfig(options: {
         exclude: [
           "**/*.test.ts",
           "**/*.test.tsx",
+          "**/*.stories.ts",
+          "**/*.stories.tsx",
           "**/test-setup.ts",
           "**/test-utils.tsx",
         ],
