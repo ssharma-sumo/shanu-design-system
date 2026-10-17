@@ -15,7 +15,9 @@
     "lint:fix": "eslint . --fix",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
-    "typecheck": "pnpm -r --filter=./packages/* run typecheck",
+    "storybook": "pnpm --filter @shanu/storybook dev",
+    "storybook:build": "pnpm --filter @shanu/storybook build",
+    "typecheck": "pnpm -r --filter=./packages/* --filter=./apps/* run typecheck",
     "test": "pnpm -r --if-present run test",
     "clean": "pnpm -r --filter=./packages/* run clean",
     "prepare": "husky"
