@@ -5,7 +5,7 @@ import { fn } from "storybook/test";
 import { Button } from "./Button.js";
 
 const meta = {
-  title: "Components/Button",
+  title: "Components/Button stories",
   component: Button,
   args: {
     children: "Button",
