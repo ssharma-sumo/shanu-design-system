@@ -143,6 +143,9 @@ dist
 # Storybook
 storybook-static/
 
+# Turborepo
+.turbo
+
 # Vite files
 vite.config.js.timestamp-*
 vite.config.ts.timestamp-*

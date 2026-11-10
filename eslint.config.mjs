@@ -13,6 +13,7 @@ export default defineConfig([
       "packages/tokens/build/**",
       "**/storybook-static/**",
       "coverage/**",
+      "**/.turbo/**",
     ],
   },
   {
