@@ -2,4 +2,6 @@ node_modules
 dist
 packages/tokens/build
 coverage
+.turbo
+storybook-static
 pnpm-lock.yaml

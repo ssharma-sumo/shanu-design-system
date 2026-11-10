@@ -37,6 +37,8 @@ pnpm install
 | `pnpm lint`      | Lint all packages           |
 | `pnpm clean`     | Clean package build outputs |
 
+`build`, `typecheck` and `test` run through [Turborepo](https://turborepo.dev) with local caching (cache stored in `.turbo/`). Re-running an unchanged task replays from cache; use `pnpm build --force` to bypass it.
+
 ## Phases
 
 1. **Workspace scaffold** (current) — pnpm monorepo layout
