@@ -75,6 +75,23 @@ When changing tokens or theme:
 
 - Token changes may cascade to theme and components — run `pnpm build` and `pnpm typecheck` from the root after any token edit.
 
+## Claude agents and skills
+
+Project-level Claude Code config lives in `.claude/` (checked in, shared with the team).
+
+| Name            | Type  | Location                            | Purpose                                                                                                  |
+| --------------- | ----- | ----------------------------------- | -------------------------------------------------------------------------------------------------------- |
+| `pr-reviewer`   | Agent | `.claude/agents/pr-reviewer.md`     | Read-only review of branch/PR changes vs `master`: correctness, repo conventions, missing tests/stories. |
+| `a11y-reviewer` | Agent | `.claude/agents/a11y-reviewer.md`   | Read-only WCAG 2.1 AA review: semantics, names, keyboard/focus, ARIA, contrast, reduced motion.          |
+| `/review-pr`    | Skill | `.claude/skills/review-pr/SKILL.md` | Runs both agents in parallel and merges results into one report (accepts an optional PR number).         |
+
+Notes:
+
+- Use `/review-pr [PR#]` for a full review before opening or merging a PR. Use an agent alone when you only need that one perspective.
+- Subagents cannot spawn other subagents, so `pr-reviewer` does not call `a11y-reviewer` itself; the `/review-pr` skill orchestrates both.
+- The reviewers are read-only: they report findings and never edit files, commit, or push.
+- When adding a new agent or skill, add it to the table above.
+
 ## Git workflow
 
 - Branch off `master`; open PRs back to `master`.
